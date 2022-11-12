@@ -1,9 +1,6 @@
-function printManagerCard(
-  employeeName,
-  employeeID,
-  emailAddress,
-  contactNumber
-) {
+let engineerHTMLContent = "";
+
+function printManagerCard(empName, id, email, contactNumber, role) {
   const managerCardHTML = `
   <div
   class="card"
@@ -15,22 +12,31 @@ function printManagerCard(
   "
 >
   <div class="card-body">
-    <h3 class="card-title">${employeeName}</h3>
+    <h3 class="card-title">${empName}</h3>
     <h4 class="card-title">
       <i class="fa fa-html5" style="font-size: 36px; color: blue"></i>
-      Manager
+      ${role}
     </h4>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Employee ID: ${employeeID}</li>
-    <li class="list-group-item">Email address: <a href="mailto:${emailAddress}">${emailAddress}</a></li>
-    <li class="list-group-item">Contact No:${contactNumber}</li>
+    <li class="list-group-item">ID: ${id}</li>
+    <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+    <li class="list-group-item">Phone:${contactNumber}</li>
 </ul>
-</div>    
-  `;
+</div>`;
   return managerCardHTML;
 }
-function generateMainHTML(data) {
+function printEngineerCards(engineerArray) {
+  if (engineerArray.length) {
+    engineerArray.forEach((engineerArray) => {
+      const engineerCard = `<div class="engineer"></div>`;
+      engineerHTMLContent += engineerCard;
+      console.log(engineerHTMLContent);
+      return engineerHTMLContent;
+    });
+  }
+}
+function generateMainHTML(mgrData, engineerArray) {
   const mainHTMLCode = `<!DOCTYPE html>
     <html>
       <head>
@@ -38,8 +44,6 @@ function generateMainHTML(data) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Team Profile Generator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!--link rel="stylesheet" type="text/css" media="screen" href="main.css" /-->
-        <!--script src="main.js"></script-->
         <link
           rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -58,30 +62,29 @@ function generateMainHTML(data) {
         <main>
         <div class="d-flex justify-content-between">
         ${printManagerCard(
-          data.employeeName,
-          data.employeeID,
-          data.emailAddress,
-          data.contactNumber
-        )}
-        </div>
-       
-       
-        </main>
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-          crossorigin="anonymous"
-        ></script>
-        <script
-          src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-          crossorigin="anonymous"
-        ></script>
-      </body>
-    </html>
-    `;
+          mgrData.empName,
+          mgrData.id,
+          mgrData.email,
+          mgrData.officeNumber,
+          mgrData.getRole()
+        )};
+        ${printEngineerCards(engineerArray)};
+       </div>
+       </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>`;
+
   return mainHTMLCode;
 }
-// ${printEmployeeCard}
 
-//${printInternCard}
+module.exports = generateMainHTML;
