@@ -1,24 +1,14 @@
 function printManagerCard(empName, id, email, contactNumber, role) {
   const managerCardHTML = `
   <div
-  class="card"
-  style="
-    width: 18rem;
-    border: 5px darkblue;
-    border-style: dashed;
-    box-shadow: 10px 10px lightskyblue;
-  "
->
-  <div class="card-body">
+  class="card card-styles">
+  <div class="card-body card-body-colour">
     <h3 class="card-title">${empName}</h3>
-    <h4 class="card-title">
-      <i class="fa fa-html5" style="font-size: 36px; color: blue"></i>
-      ${role}
-    </h4>
+    <h4 class="card-title"><i class="fa fa-user-circle-o icon-size" aria-hidden="true"></i>${role}</h4>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${id}</li>
-    <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+    <li class="list-group-item">Email: <a href="mailto:${email} target="_blank"">${email}</a></li>
     <li class="list-group-item">Phone:${contactNumber}</li>
 </ul></div>`;
   return managerCardHTML;
@@ -29,27 +19,18 @@ function printEngineerCards(engineerArray) {
   if (engineerArray.length) {
     engineerArray.forEach((engineerArray) => {
       const engineerCard = `<div
-      class="card"
-      style="
-        width: 18rem;
-        border: 5px darkblue;
-        border-style: dashed;
-        box-shadow: 10px 10px lightskyblue;
-      "
-    >
-      <div class="card-body">
+      class="card card-styles">
+      <div class="card-body card-body-colour">
         <h3 class="card-title">${engineerArray.empName}</h3>
         <h4 class="card-title">
-          <i class="fa fa-html5" style="font-size: 36px; color: blue"></i>
-          ${engineerArray.getRole()}
-        </h4>
+        <i class="fa fa-user-o icon-size" aria-hidden="true"></i>${engineerArray.getRole()}</h4>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${engineerArray.id}</li>
         <li class="list-group-item">Email: <a href="mailto:${
           engineerArray.email
         }">${engineerArray.email}</a></li>
-        <li class="list-group-item">Github:<a href='${engineerArray.getGitHub()}'>${engineerArray.getGitHub()}</a></li>
+        <li class="list-group-item">Github:<a href='${engineerArray.getGitHub()}'target="_blank">${engineerArray.getGitHub()}</a></li>
     </ul> </div>`;
       //concatenate HTML liverals to another variable
       engineerHTMLContent += engineerCard;
@@ -64,20 +45,11 @@ function printInternCards(internArray) {
   if (internArray.length) {
     internArray.forEach((internArray) => {
       const internCard = `<div
-      class="card"
-      style="
-        width: 18rem;
-        border: 5px darkblue;
-        border-style: dashed;
-        box-shadow: 10px 10px lightskyblue;
-      "
-    >
-      <div class="card-body">
+      class="card card-styles">
+      <div class="card-body card-body-colour">
         <h3 class="card-title">${internArray.empName}</h3>
         <h4 class="card-title">
-          <i class="fa fa-html5" style="font-size: 36px; color: blue"></i>
-          ${internArray.getRole()}
-        </h4>
+        <i class="fa fa-graduation-cap icon-size" aria-hidden="true"></i>${internArray.getRole()}</h4>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${internArray.id}</li>
@@ -112,12 +84,16 @@ function generateMainHTML(mgrData, engineerArray, internArray) {
           href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
           rel="stylesheet"
         />
+        <link
+        href="./style.css"
+        rel="stylesheet"
+      />
       </head>
       <body>
         <header class="header jumbotron"><h1>My Team</h1></header>
         <main>
         <div class="container">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-center">
         
   ${printManagerCard(
     mgrData.empName,
@@ -129,6 +105,7 @@ function generateMainHTML(mgrData, engineerArray, internArray) {
   ${printEngineerCards(engineerArray)}
   ${printInternCards(internArray)}
   </div>
+  
   </div>
     </main>
     <script

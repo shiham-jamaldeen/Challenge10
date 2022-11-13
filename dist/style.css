@@ -1,0 +1,21 @@
+.body {
+  background-color: whitesmoke;
+}
+.card-styles {
+  width: 18rem;
+  border: 5px darkblue;
+  border-style: dashed;
+  box-shadow: 10px 10px lightskyblue;
+}
+.card-body-colour {
+  background-color: whitesmoke;
+}
+.header {
+  text-align: center;
+  padding: 20px;
+  background-color: lightblue;
+}
+.icon-size {
+  font-size: 46px;
+  color: blue;
+}

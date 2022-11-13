@@ -2,19 +2,17 @@
 
 //inquirer
 const inquirer = require("inquirer");
-//file server
+//file system
 const fs = require("fs");
 //html template file
 const generateHTML = require("./src/generateTemplate.js");
 
 //constructors
-//const employee = require("./lib/employee.js");
 const manager = require("./lib/manager.js");
 const engineer = require("./lib/engineer.js");
 const intern = require("./lib/intern.js");
 
 //global variables
-
 const engineerArray = [];
 const internArray = [];
 
@@ -36,8 +34,7 @@ function processInfomation(mngrData, engineerArray, internArray) {
   writeToFile(fileName, writeData);
 }
 function getManagerResponses() {
-  //function accepts user input
-  //Manager Responses
+  //function accepts user input manager responses
 
   inquirer
     .prompt([
@@ -79,17 +76,18 @@ function getManagerResponses() {
 
       //check for user input
       if (mngrResponses.userChoice === "Engineer") {
-        //call Engineer Responses
         console.log("***Enter Engineer details***");
+        //call Engineer Responses
         getEngineerResponses(mgrData);
       } else if (mngrResponses.userChoice === "Intern") {
-        //call Intern Responses
         console.log("***Enter Intern/Trainee details***");
+        //call Intern Responses
         getInternResponses(mgrData);
       }
     });
 }
 function getEngineerResponses(mgrData) {
+  //function to get engineer responses
   inquirer
     .prompt([
       {
@@ -124,12 +122,13 @@ function getEngineerResponses(mgrData) {
       );
       //write the data to an array
       engineerArray.push(engineerData);
-      console.log(engineerArray);
+      //console.log(engineerArray);
       //call  user choice function, to check what user whats to do next
       userChoice(mgrData);
     });
 }
 function userChoice(mgrData) {
+  //function to accept user choice, on how to proceed after data entry
   inquirer
     .prompt([
       {
@@ -150,14 +149,14 @@ function userChoice(mgrData) {
         getInternResponses(mgrData);
       } else if (userResposnses.userChoice === "Exit") {
         console.log("Thank you! Your responses will be now saved!");
-        //console.log(managerArray);
-        //console.log(engineerArray);
+        //call function to generate the HTML file
         processInfomation(mgrData, engineerArray, internArray);
         return;
       }
     });
 }
 function getInternResponses(mgrData) {
+  //function to get intern reponses
   inquirer
     .prompt([
       {
