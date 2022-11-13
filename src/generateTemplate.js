@@ -1,5 +1,7 @@
 let engineerHTMLContent = "";
-
+//const managerCardHTML = "";
+//const mainHTMLCode = "";
+let finalHTML = "";
 function printManagerCard(empName, id, email, contactNumber, role) {
   const managerCardHTML = `
   <div
@@ -22,16 +24,37 @@ function printManagerCard(empName, id, email, contactNumber, role) {
     <li class="list-group-item">ID: ${id}</li>
     <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
     <li class="list-group-item">Phone:${contactNumber}</li>
-</ul>
-</div>`;
+</ul>`;
   return managerCardHTML;
 }
 function printEngineerCards(engineerArray) {
   if (engineerArray.length) {
     engineerArray.forEach((engineerArray) => {
-      const engineerCard = `<div class="engineer"></div>`;
+      const engineerCard = `<div
+      class="card"
+      style="
+        width: 18rem;
+        border: 5px darkblue;
+        border-style: dashed;
+        box-shadow: 10px 10px lightskyblue;
+      "
+    >
+      <div class="card-body">
+        <h3 class="card-title">${engineerArray.empName}</h3>
+        <h4 class="card-title">
+          <i class="fa fa-html5" style="font-size: 36px; color: blue"></i>
+          ${engineerArray.getRole()}
+        </h4>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${engineerArray.id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${
+          engineerArray.email
+        }">${engineerArray.email}</a></li>
+        <li class="list-group-item">Phone:${engineerArray.gitHubHandle}</li>
+    </ul>`;
       engineerHTMLContent += engineerCard;
-      console.log(engineerHTMLContent);
+      console.log(engineerCard);
       return engineerHTMLContent;
     });
   }
@@ -61,30 +84,19 @@ function generateMainHTML(mgrData, engineerArray) {
         <header class="header jumbotron"><h1>My Team</h1></header>
         <main>
         <div class="d-flex justify-content-between">
-        ${printManagerCard(
-          mgrData.empName,
-          mgrData.id,
-          mgrData.email,
-          mgrData.officeNumber,
-          mgrData.getRole()
-        )};
-        ${printEngineerCards(engineerArray)};
-       </div>
-       </main>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>`;
+        `;
+  //finalHTML
+  printManagerCard(
+    mgrData.empName,
+    mgrData.id,
+    mgrData.email,
+    mgrData.officeNumber,
+    mgrData.getRole()
+  );
+  printEngineerCards(engineerArray);
 
-  return mainHTMLCode;
+  finalHTML += mainHTMLCode;
+  return finalHTML;
 }
 
 module.exports = generateMainHTML;
