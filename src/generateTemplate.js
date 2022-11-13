@@ -4,7 +4,7 @@ function printManagerCard(empName, id, email, contactNumber, role) {
   class="card card-styles">
   <div class="card-body card-body-colour">
     <h3 class="card-title">${empName}</h3>
-    <h4 class="card-title"><i class="fa fa-user-circle-o icon-size" aria-hidden="true"></i>${role}</h4>
+    <h4 class="card-title"><i class="fa fa-user-circle-o icon-size" aria-hidden="true"></i> ${role}</h4>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${id}</li>
@@ -23,7 +23,7 @@ function printEngineerCards(engineerArray) {
       <div class="card-body card-body-colour">
         <h3 class="card-title">${engineerArray.empName}</h3>
         <h4 class="card-title">
-        <i class="fa fa-user-o icon-size" aria-hidden="true"></i>${engineerArray.getRole()}</h4>
+        <i class="fa fa-user-o icon-size" aria-hidden="true"></i> ${engineerArray.getRole()}</h4>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${engineerArray.id}</li>
@@ -49,7 +49,7 @@ function printInternCards(internArray) {
       <div class="card-body card-body-colour">
         <h3 class="card-title">${internArray.empName}</h3>
         <h4 class="card-title">
-        <i class="fa fa-graduation-cap icon-size" aria-hidden="true"></i>${internArray.getRole()}</h4>
+        <i class="fa fa-graduation-cap icon-size" aria-hidden="true"></i> ${internArray.getRole()}</h4>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${internArray.id}</li>
@@ -93,7 +93,7 @@ function generateMainHTML(mgrData, engineerArray, internArray) {
         <header class="header jumbotron"><h1>My Team</h1></header>
         <main>
         <div class="container">
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-between">
         
   ${printManagerCard(
     mgrData.empName,
