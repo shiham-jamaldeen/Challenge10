@@ -1,7 +1,3 @@
-let engineerHTMLContent = "";
-//const managerCardHTML = "";
-//const mainHTMLCode = "";
-let finalHTML = "";
 function printManagerCard(empName, id, email, contactNumber, role) {
   const managerCardHTML = `
   <div
@@ -28,6 +24,8 @@ function printManagerCard(empName, id, email, contactNumber, role) {
   return managerCardHTML;
 }
 function printEngineerCards(engineerArray) {
+  let engineerHTMLContent = "";
+
   if (engineerArray.length) {
     engineerArray.forEach((engineerArray) => {
       const engineerCard = `<div
@@ -53,6 +51,7 @@ function printEngineerCards(engineerArray) {
         }">${engineerArray.email}</a></li>
         <li class="list-group-item">Phone:${engineerArray.gitHubHandle}</li>
     </ul>`;
+      //concatenate HTML liverals to another variable
       engineerHTMLContent += engineerCard;
       console.log(engineerCard);
       return engineerHTMLContent;
@@ -84,19 +83,16 @@ function generateMainHTML(mgrData, engineerArray) {
         <header class="header jumbotron"><h1>My Team</h1></header>
         <main>
         <div class="d-flex justify-content-between">
-        `;
-  //finalHTML
-  printManagerCard(
+        
+  ${printManagerCard(
     mgrData.empName,
     mgrData.id,
     mgrData.email,
     mgrData.officeNumber,
     mgrData.getRole()
-  );
-  printEngineerCards(engineerArray);
-
-  finalHTML += mainHTMLCode;
-  return finalHTML;
+  )}
+  ${printEngineerCards(engineerArray)}
+`;
+  return mainHTMLCode;
 }
-
 module.exports = generateMainHTML;
