@@ -197,4 +197,3 @@ function getInternResponses(mgrData) {
 }
 //main
 getManagerResponses();
-//processInfomation(managerArray, engineerArray);
