@@ -15,8 +15,10 @@ function printManagerCard(empName, id, email, contactNumber, role) {
 }
 function printEngineerCards(engineerArray) {
   let engineerHTMLContent = "";
-
-  if (engineerArray.length) {
+  let engineerHTMLContentLoop1 = "";
+  let engineerHTMLContentLoop2 = "";
+  console.log(engineerArray.length);
+  if (engineerArray.length <= 2) {
     engineerArray.forEach((engineerArray) => {
       const engineerCard = `<div
       class="card card-styles">
@@ -35,14 +37,67 @@ function printEngineerCards(engineerArray) {
       //concatenate HTML liverals to another variable
       engineerHTMLContent += engineerCard;
     });
-  }
+    return engineerHTMLContent;
+  } else if (engineerArray.length <= 6) {
+    engineerArray.forEach((engineerArray, index) => {
+      if (index < 2) {
+        console.log("now the index is:" + index);
+        //add the div row
+        const engineerCard = `<div
+    class="card card-styles">
+    <div class="card-body card-body-colour">
+      <h3 class="card-title">${engineerArray.empName}</h3>
+      <h4 class="card-title">
+      <i class="fa fa-user-o icon-size" aria-hidden="true"></i>${engineerArray.getRole()}</h4>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ID: ${engineerArray.id}</li>
+      <li class="list-group-item">Email: <a href="mailto:${
+        engineerArray.email
+      }">${engineerArray.email}</a></li>
+      <li class="list-group-item">Github:<a href='${engineerArray.getGitHub()}'target="_blank">${engineerArray.getGitHub()}</a></li>
+  </ul> </div>`;
+        //concatenate HTML liverals to another variable
+        engineerHTMLContentLoop1 += engineerCard;
+      } else if (index < 6) {
+        console.log("******now the index is:" + index);
+        //create a new div row to add the cards
 
-  //return the final variable with literals
-  return engineerHTMLContent;
+        const engineerCard = `
+    <div
+    class="card card-styles">
+    <div class="card-body card-body-colour">
+      <h3 class="card-title">${engineerArray.empName}</h3>
+      <h4 class="card-title">
+      <i class="fa fa-user-o icon-size" aria-hidden="true"></i> ${engineerArray.getRole()}</h4>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ID: ${engineerArray.id}</li>
+      <li class="list-group-item">Email: <a href="mailto:${
+        engineerArray.email
+      }">${engineerArray.email}</a></li>
+      <li class="list-group-item">Github:<a href='${engineerArray.getGitHub()}'target="_blank">${engineerArray.getGitHub()}</a></li>
+  </ul> </div>`;
+        //concatenate HTML liverals to another variable
+        engineerHTMLContentLoop2 += engineerCard;
+      }
+    });
+    //you need to close HTML close tag
+    const closeRow = `</div>`;
+    //you need to add a new row if there are three or more cards
+    const newRow = `<div class="d-flex justify-content-around main-container">`;
+    //concatonate all the Engineer Cards and create the final HTML Content
+    engineerHTMLContent =
+      engineerHTMLContentLoop1 + closeRow + newRow + engineerHTMLContentLoop2;
+    //return the final variable with literals
+    return engineerHTMLContent;
+  }
 }
 function printInternCards(internArray) {
   let internHTMLContent = "";
-  if (internArray.length) {
+  let internHTMLContentLoop1 = "";
+  //check size of internet card array
+  if (internArray.length <= 2) {
     internArray.forEach((internArray) => {
       const internCard = `<div
       class="card card-styles">
@@ -59,8 +114,11 @@ function printInternCards(internArray) {
         <li class="list-group-item">School:${internArray.school}</a></li>
     </ul> </div>`;
       //concatenate HTML liverals to another variable
-      internHTMLContent += internCard;
+      internHTMLContentLoop1 += internCard;
     });
+    //close the <div> tag
+    const closeRow = `</div>`;
+    internHTMLContent = internHTMLContentLoop1 + closeRow;
   }
   return internHTMLContent;
 }
@@ -93,7 +151,7 @@ function generateMainHTML(mgrData, engineerArray, internArray) {
         <header class="header jumbotron"><h1>My Team</h1></header>
         <main>
         <div class="container">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between main-container">
         
   ${printManagerCard(
     mgrData.empName,
