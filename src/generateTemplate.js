@@ -8,7 +8,7 @@ function printManagerCard(empName, id, email, contactNumber, role) {
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${id}</li>
-    <li class="list-group-item">Email: <a href="mailto:${email} target="_blank"">${email}</a></li>
+    <li class="list-group-item">Email: <a href="mailto:${email}" target="_blank">${email}</a></li>
     <li class="list-group-item">Phone:${contactNumber}</li>
 </ul></div>`;
   return managerCardHTML;
@@ -17,7 +17,6 @@ function printEngineerCards(engineerArray) {
   let engineerHTMLContent = "";
   let engineerHTMLContentLoop1 = "";
   let engineerHTMLContentLoop2 = "";
-  console.log(engineerArray.length);
   if (engineerArray.length <= 2) {
     engineerArray.forEach((engineerArray) => {
       const engineerCard = `<div
@@ -31,7 +30,7 @@ function printEngineerCards(engineerArray) {
         <li class="list-group-item">ID: ${engineerArray.id}</li>
         <li class="list-group-item">Email: <a href="mailto:${
           engineerArray.email
-        }">${engineerArray.email}</a></li>
+        }" target="_blank">${engineerArray.email}</a></li>
         <li class="list-group-item">Github:<a href='${engineerArray.getGitHub()}'target="_blank">${engineerArray.getGitHub()}</a></li>
     </ul> </div>`;
       //concatenate HTML liverals to another variable
@@ -41,7 +40,6 @@ function printEngineerCards(engineerArray) {
   } else if (engineerArray.length <= 6) {
     engineerArray.forEach((engineerArray, index) => {
       if (index < 2) {
-        console.log("now the index is:" + index);
         //add the div row
         const engineerCard = `<div
     class="card card-styles">
@@ -54,13 +52,12 @@ function printEngineerCards(engineerArray) {
       <li class="list-group-item">ID: ${engineerArray.id}</li>
       <li class="list-group-item">Email: <a href="mailto:${
         engineerArray.email
-      }">${engineerArray.email}</a></li>
+      }" target="_blank">${engineerArray.email}</a></li>
       <li class="list-group-item">Github:<a href='${engineerArray.getGitHub()}'target="_blank">${engineerArray.getGitHub()}</a></li>
   </ul> </div>`;
         //concatenate HTML liverals to another variable
         engineerHTMLContentLoop1 += engineerCard;
       } else if (index < 6) {
-        console.log("******now the index is:" + index);
         //create a new div row to add the cards
 
         const engineerCard = `
@@ -75,7 +72,7 @@ function printEngineerCards(engineerArray) {
       <li class="list-group-item">ID: ${engineerArray.id}</li>
       <li class="list-group-item">Email: <a href="mailto:${
         engineerArray.email
-      }">${engineerArray.email}</a></li>
+      }" target="_blank">${engineerArray.email}</a></li>
       <li class="list-group-item">Github:<a href='${engineerArray.getGitHub()}'target="_blank">${engineerArray.getGitHub()}</a></li>
   </ul> </div>`;
         //concatenate HTML liverals to another variable
@@ -110,7 +107,7 @@ function printInternCards(internArray) {
         <li class="list-group-item">ID: ${internArray.id}</li>
         <li class="list-group-item">Email: <a href="mailto:${
           internArray.email
-        }">${internArray.email}</a></li>
+        }" target="_blank">${internArray.email}</a></li>
         <li class="list-group-item">School:${internArray.school}</a></li>
     </ul> </div>`;
       //concatenate HTML liverals to another variable
