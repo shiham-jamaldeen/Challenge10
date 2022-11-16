@@ -2,12 +2,18 @@
 
 ## Description
 
-The `Team Profile Genrator` is a command-line application that accepts information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each team member in the team.
+The `Team Profile Genrator` is a command-line application that accepts information about employees of a software engineering team, then generates an HTML webpage that displays summaries for each team member in the team.
 
-- The program is created using `node.js` and utilises the `npm` package `inquirer`.
+- The program is created using `node.js`. It also utilises the `npm` packages `inquirer` and `jest`.
 - HTML 5, CSS and Bootstrap to generate the HTML page.
 
 ## Table of Contents
+
+- Installation (installation)
+  Usage instructions(usage instructions)
+  Preview of the application
+  Walkthrough and Demo
+  Testing
 
 ## Installation
 
@@ -25,7 +31,7 @@ The `Team Profile Genrator` is a command-line application that accepts informati
 4. Select `Exit` to exit the application and generate the HTML page.
    > **Note**: The generated HTML files is saved in the ./dist/generatedHTML.html folder.
 
-## Preview and Screenshots
+## Preview of the application
 
 ### Command-line input
 
@@ -41,10 +47,18 @@ The `Team Profile Genrator` is a command-line application that accepts informati
 
 ![Unit test and running the application](./images/DemoTeamProfileGenerator-1.gif)
 
-- Link to [MP4](./dist/DemoTeamProfileGenerator-1.mp4) of the Unit test and demo of the application
-
 ### Accessing Email and Github from HTML Page
 
 ![Email and Github demo](./images/DemoTeamProfileGenerator-2.gif)
 
-- Link to [MP4](./dist/DemoTeamProfileGenerator-2.mp4)
+## Testing
+
+As part of Test Driven Development (TDD), you will find `jest` test files in the `./test/` folder. To run these simply enter the command `npm run test` in the terminal.
+
+```md
+├── tests
+│ ├── employee.test.js
+│ ├── engineer.test.js
+│ ├── intern.test.js
+│ └── manager.test.js
+```
