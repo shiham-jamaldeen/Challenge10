@@ -9,11 +9,11 @@ The `Team Profile Genrator` is a command-line application that accepts informati
 
 ## Table of Contents
 
-- Installation (installation)
-  Usage instructions(usage instructions)
-  Preview of the application
-  Walkthrough and Demo
-  Testing
+- [Installation](#installation)
+- [Usage instructions](#usage-instructions)
+- [Preview of the application](#Preview-of-the-application)
+- [Walkthrough and Demo](#Walkthrough-and-Demo)
+- [Testing](#Testing)
 
 ## Installation
 
