@@ -63,4 +63,4 @@ As part of Test Driven Development (TDD), you will find `jest` test files in the
 │ └── manager.test.js
 ```
 ### Screenshot of test suite 
-![Test suite passed screenshot](../images/TestPassed.png)
+![Test suite passed screenshot](./images/TestPassed.png)
