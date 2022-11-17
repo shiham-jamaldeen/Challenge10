@@ -56,9 +56,11 @@ The `Team Profile Genrator` is a command-line application that accepts informati
 As part of Test Driven Development (TDD), you will find `jest` test files in the `./test/` folder. To run these simply enter the command `npm run test` in the terminal.
 
 ```md
-├── tests
+├── test
 │ ├── employee.test.js
 │ ├── engineer.test.js
 │ ├── intern.test.js
 │ └── manager.test.js
 ```
+### Screenshot of test suite 
+![Test suite passed screenshot](../images/TestPassed.png)
