@@ -2,7 +2,7 @@
 
 ## Description
 
-The `Team Profile Genrator` is a command-line application that accepts information about employees of a software engineering team, then generates an HTML webpage that displays summaries for each team member in the team.
+The `Team Profile Generator` is a command-line application that accepts information about employees of a software engineering team, then generates an HTML webpage that displays summaries for each team member in the team.
 
 - The program is created using `node.js`. It also utilises the `npm` packages `inquirer` and `jest`.
 - HTML 5, CSS and Bootstrap to generate the HTML page.
